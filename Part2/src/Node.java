@@ -8,6 +8,7 @@ public class Node {
     private Node right;
     private int key;
 
+    //we set the key to the given value and the children to null
     public Node(int key) {
         this.left = null;
         this.right = null;
