@@ -1,10 +1,9 @@
-
 import java.util.Scanner;
 
-
 /**
- *
- * @author Robin
+ * @author Robin Lausten Petersen   - ropet17
+ * @author Jeppe Enevold Jensen - jeppj17
+ * @author Kim Christensen - kichr17
  */
 public class Treesort {
     public static void main(String[] args) {
