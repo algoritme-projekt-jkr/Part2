@@ -24,15 +24,15 @@ public class DictBinTree implements Dict {
             y = x;
             if (z.getKey() < x.getKey()) {
                 x = x.getLeft();
-            }else {
+            } else {
                 x = x.getRight();
             }
         }
-        if (y == null){
+        if (y == null) {
             this.root = z;
-        }else if(z.getKey() < y.getKey()){
+        } else if (z.getKey() < y.getKey()) {
             y.setLeft(z);
-        }else {
+        } else {
             y.setRight(z);
         }
         this.size++;
@@ -40,30 +40,36 @@ public class DictBinTree implements Dict {
 
     @Override
     public int[] orderedTraversal() {
-        return inorderTreeWalk(root);
+        int[] a = new int[size];
+        this.counter = 0;
+        return inorderTreeWalk(root, a);
     }
-    
-    private int[] inorderTreeWalk(Node x){
-        
-        if(x != null){
-            inorderTreeWalk(x.getLeft());
-            
-            inorderTreeWalk(x.getRight());
+
+    private int[] inorderTreeWalk(Node x, int[] a) {
+        if (x != null) {
+            inorderTreeWalk(x.getLeft(), a);
+            a[counter] = x.getKey();
+            counter++;
+            inorderTreeWalk(x.getRight(), a);
         }
+        return a;
     }
 
     @Override
     public boolean search(int k) {
         Node x = this.root;
-        while(x != null && k != x.getKey()){
-            if(k < x.getKey()){
+        while (x != null && k != x.getKey()) {
+            if (k < x.getKey()) {
                 x = x.getLeft();
-            }else{
+            } else {
                 x = x.getRight();
             }
         }
-        
-        return x.getKey() == k; // SKAL MÅSKE HAVE EKSTRA TJEK--------------------------------------------------------------
+        if (x != null){
+        return x.getKey() == k;
+        }else {
+            return false;
+        }
     }
 
 }
