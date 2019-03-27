@@ -27,8 +27,5 @@ public class Treesort {
             System.out.println(output[n]); //we print the value from index n
             n++; //we increment the counter n
         }
-        
-        
     }
-    
 }
