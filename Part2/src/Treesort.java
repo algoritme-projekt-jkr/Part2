@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Treesort {
     public static void main(String[] args) {
-        DictBinTree dbt = new DictBinTree(); //we instantiate the DictBinTree
+        Dict dbt = new DictBinTree(); //we instantiate the DictBinTree
         
         //we make a scanner with input from "standard input"
         Scanner scanner = new Scanner(System.in); 
@@ -23,7 +23,7 @@ public class Treesort {
         int n = 0; //counter to keep track of where we are
         
         //while we haven't reached the end of the output array
-        while(n < dbt.getSize()){ 
+        while(n < output.length){ 
             System.out.println(output[n]); //we print the value from index n
             n++; //we increment the counter n
         }

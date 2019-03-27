@@ -99,9 +99,4 @@ public class DictBinTree implements Dict {
             return false;
         }
     }
-
-    //getter for the size
-    public int getSize() {
-        return size;
-    }
 }
