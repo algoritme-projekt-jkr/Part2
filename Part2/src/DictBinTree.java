@@ -60,7 +60,8 @@ public class DictBinTree implements Dict {
         }
         return a; //we return the array
     }
-
+    
+    //This is the iterative search method
     @Override
     public boolean search(int k) {
         Node x = this.root; //we set x to be the root of the tree
