@@ -10,7 +10,8 @@ public class DictBinTree implements Dict {
     private int size; //the size of the tree
     private int counter; //a counter for traversal in the tree
 
-    //initialize the values and we set the root to null to indicate that the tree is empty
+    //initialize the values and we set the root to null 
+    //to indicate that the tree is empty
     public DictBinTree() {
         this.counter = 0;
         this.size = 0;
@@ -21,14 +22,18 @@ public class DictBinTree implements Dict {
     public void insert(int k) {
         Node y = null; //the trailing pointer y is the parent of x
         Node x = this.root; //we set x to be the root of the tree
-        Node z = new Node((k)); //we make a node z with key k to be inserted in the tree
+        //we make a node z with key k to be inserted in the tree
+        Node z = new Node((k)); 
         //x is a node (not null)
         while (x != null) {
             y = x; //we set y to be the current x
-            if (z.getKey() < x.getKey()) { //we check if z.key is smaller than x.key
-                x = x.getLeft(); //we set x to be the left child of the current x
+            //we check if z.key is smaller than x.key
+            if (z.getKey() < x.getKey()) { 
+                //we set x to be the left child of the current x
+                x = x.getLeft(); 
             } else {
-                x = x.getRight();//else we set x to be the right child of the current x
+                //else we set x to be the right child of the current x
+                x = x.getRight();
             }
         }
         if (y == null) { //we check if the tree is empty
@@ -44,19 +49,29 @@ public class DictBinTree implements Dict {
     //the public method for traversal
     @Override
     public int[] orderedTraversal() {
-        int[] a = new int[size]; //we make an array with the size of the treesize
-        this.counter = 0; //we set the counter to 0 to make sure that each call of the method starts the counter at 0
-        return inorderTreeWalk(root, a); //we return the result of the recursive inorderTreeWalk method.
+        //we make an array with the size of the treesize
+        int[] a = new int[size]; 
+        //we set the counter to 0 to make sure that each call of the method 
+        //starts the counter at 0
+        this.counter = 0; 
+        //we return the result of the recursive inorderTreeWalk method.
+        return inorderTreeWalk(root, a); 
     }
 
     //the private recursive method for traversal
-    private int[] inorderTreeWalk(Node x, int[] a) { //x is the starting node and a is the array we work in
+    //x is the starting node and a is the array we work in
+    private int[] inorderTreeWalk(Node x, int[] a) { 
         if (x != null) { //if x is a node (not null)
-            inorderTreeWalk(x.getLeft(), a); //we recursively call this method on the left child
-            //The reason we go to the left node is to find the smallest node by recursion
-            a[counter] = x.getKey(); //we insert the key from x in the array at the counter index
+            //we recursively call this method on the left child
+            inorderTreeWalk(x.getLeft(), a); 
+            //The reason we go to the left node is to find 
+            //the smallest node by recursion
+            
+            //we insert the key from x in the array at the counter index
+            a[counter] = x.getKey(); 
             counter++; // we increment the counter
-            inorderTreeWalk(x.getRight(), a);//we recursively call this method on the right child
+            //we recursively call this method on the right child
+            inorderTreeWalk(x.getRight(), a);
         }
         return a; //we return the array
     }
@@ -65,16 +80,21 @@ public class DictBinTree implements Dict {
     @Override
     public boolean search(int k) {
         Node x = this.root; //we set x to be the root of the tree
-        while (x != null && k != x.getKey()) { //while x is a node and the key hasn't been found
-            if (k < x.getKey()) { //we check if we have to go left or right in the tree
-                x = x.getLeft(); //we went left and set x to be the left child of the current x
+        //while x is a node and the key hasn't been found
+        while (x != null && k != x.getKey()) { 
+            //we check if we have to go left or right in the tree
+            if (k < x.getKey()) { 
+                //we went left and set x to be the left child of the current x
+                x = x.getLeft(); 
             } else {
-                x = x.getRight();//else we went right and set x to be the right child of the current x
+         //else we went right and set x to be the right child of the current x
+                x = x.getRight();
             }
         }
         //checks if we found the key (false if x is null)
         if (x != null){
         return x.getKey() == k;
+        
         }else {
             return false;
         }
@@ -84,7 +104,4 @@ public class DictBinTree implements Dict {
     public int getSize() {
         return size;
     }
-    
-    
-
 }
